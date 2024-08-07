@@ -33,7 +33,7 @@ store, err = NewVaultSecretStore("http://vault:8200", "dev-only-token") // For a
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/yourusername/dockerized-vault-app.git
+git clone https://github.com/mhtcode/Dockerized-vault-app.git
 cd dockerized-vault-app
 ```
 
