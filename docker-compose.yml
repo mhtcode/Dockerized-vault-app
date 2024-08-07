@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: dev-only-token
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+    command: vault server -dev -dev-root-token-id=dev-only-token -dev-listen-address=0.0.0.0:8200
+    networks:
+      - vault-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-vault-app
+    environment:
+      VAULT_ADDR: http://vault:8200
+    depends_on:
+      - vault
+    networks:
+      - vault-network
+    stdin_open: true # Keep stdin open even if not attached
+    tty: true # Allocate a pseudo-TTY
+
+networks:
+  vault-network:
+    driver: bridge
