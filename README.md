@@ -4,7 +4,7 @@ This is a Dockerized application for managing secrets using two different storag
 
 > [🚨Notice] 
 > - **Two Running Methods**:
->  - **Running on local machine.**
+>  - **Running on a local machine.**
 >  - **Running with Docker.**
 
 **Comment or uncomment based on your running method:**
@@ -53,7 +53,7 @@ docker exec -it my-vault-app sh
 
 
 ## EXAMPLE:
-```
+```plaintext
 Select the storage method:
 1. HashiCorp Vault
 2. In-Memory Store
